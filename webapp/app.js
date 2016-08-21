@@ -6,9 +6,12 @@ import eventlistenersModule from 'snabbdom/modules/eventlisteners';
 import h from 'snabbdom/h';
 
 import store, {inject} from './store.js'
-import { getCSS } from './utils/generateStyle.js';
+import { registerStyles, getCSS } from './utils/generateStyle.js';
 
-import Pikachu from './components/Pikachu.js';
+import style from 'webapp/style.js';
+
+import Pikachu from './components/Pikachu/index.js';
+import Controller from './components/Controller/index.js';
 
 const patch = snabbdom.init([ // Init patch function with choosen modules
   classModule, // makes it easy to toggle classes
@@ -17,13 +20,16 @@ const patch = snabbdom.init([ // Init patch function with choosen modules
   eventlistenersModule // attaches event listeners
 ]);
 
+const classes = registerStyles(style);
+console.log(classes);
 // childrenのみを書き換えるパターン
 const render = inject(({dispatch, state}) => {
-  return h('div#app-container', {
+  return h(`div#app-container.${classes.LAYOUT}`, {
     style: {
     }
   }, [
     Pikachu(),
+    Controller(),
     h('style', {}, [getCSS()])
   ]);
 });
@@ -41,12 +47,16 @@ const update = () => {
   tree = newTree;
 };
 
-const unSubscribe = store.subscribe(update);
+let unSubscribe = store.subscribe(update);
 
 export const _reload = () => {
+  unSubscribe = store.subscribe(update);
   update();
+  console.log('reload!');
 };
 
 export const _unload = () => {
+  tree = document.querySelector('#app-container');
   unSubscribe();
+  console.log('unload!');
 };

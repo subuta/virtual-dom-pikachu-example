@@ -12,8 +12,18 @@ const dots = (state = PIKACHU_DOWN_A, action) => {
   }
 };
 
+const direction = (state = 'down', action) => {
+  switch (action.type) {
+    case 'turn':
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 const pikachu = combineReducers({
-  dots
+  dots,
+  direction
 });
 
 export default pikachu;
@@ -21,4 +31,8 @@ export default pikachu;
 // selectors
 export const getDots = (state) => {
   return state.pikachu.dots;
+};
+
+export const getDirection = (state) => {
+  return state.pikachu.direction;
 };

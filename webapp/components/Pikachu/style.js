@@ -1,20 +1,32 @@
+import {
+  DOT_SIZE
+} from 'webapp/constants/dots.js';
+
+const COLOR = '#313131';
+
 export const PIKACHU = {
+  margin: 16,
   position: 'relative'
 };
 
 export const ROW = {
   display: 'block',
   fontSize: 0,
-  height: 1,
-  width: 18
+  height: DOT_SIZE,
+  width: DOT_SIZE * 18
 };
 
 export const DOT = {
   display: 'inline-block',
-  height: 1,
-  width: 1,
+  height: DOT_SIZE,
+  width: DOT_SIZE,
   fontSize: 0,
-  backgroundColor: '#333333'
+  backgroundColor: COLOR
+};
+
+export const DOT_GRAY = {
+  ...DOT,
+  backgroundColor: '#BBBBBB'
 };
 
 export const DOT_OFF = {
@@ -26,5 +38,6 @@ export default {
   PIKACHU,
   ROW,
   DOT,
+  DOT_GRAY,
   DOT_OFF
 }

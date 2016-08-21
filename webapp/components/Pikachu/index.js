@@ -1,7 +1,7 @@
 import h from 'snabbdom/h';
 import _ from 'lodash';
 
-import {connect, inject} from 'webapp/store.js'
+import {inject} from 'webapp/store.js'
 import {createSelector} from 'reselect';
 import { bindActionCreators } from 'redux'
 
@@ -31,6 +31,8 @@ const classes = registerStyles(style);
 const getDotClass = (dot) => {
   if (dot === 0) {
     return `.${classes.DOT_OFF}`;
+  } else if (dot === 2) {
+    return `.${classes.DOT_GRAY}`;
   }
   return `.${classes.DOT}`;
 };
@@ -45,11 +47,21 @@ const renderPikachu = (dots) => {
 };
 
 export default inject(({props}) => {
-    console.log('[pikachu] rendered');
+    // console.log('[pikachu] rendered');
     return h(`span`, {
       on: {
         'click': function (ev) {
           return props.alternate();
+        }
+      },
+      hook: {
+        create: () => {
+          console.log('create!');
+          setInterval(() => {
+            requestAnimationFrame(() => {
+              props.alternate();
+            });
+          }, 1000 / 2);
         }
       }
     }, [renderPikachu(props.dots)]);
