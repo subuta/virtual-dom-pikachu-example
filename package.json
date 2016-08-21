@@ -71,7 +71,13 @@
     }
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "serve": "caddy & npm run watch",
+    "servep": "caddy --conf Caddyfilep",
+    "bundle": "jspm bundle webapp/app.js -wid",
+    "watch": "npm run bundle",
+    "unbundle": "jspm unbundle webapp/app.js",
+    "build": "jspm build webapp/app.js dist/bundled.js --skip-rollup --format umd --skip-source-maps --minify",
+    "build-dev": "jspm build webapp/app.js dist/bundled.js --skip-rollup --format umd"
   },
   "repository": {
     "type": "git",

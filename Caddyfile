@@ -5,6 +5,13 @@ gzip
 browse
 ext .html
 
+websocket /watch "node ./node_modules/.bin/jspm-caddy-hmr"
+
+rewrite {
+  regexp (^/watch$)
+  to /watch
+}
+
 rewrite {
   regexp (^/$)
   to /webapp/index.html?{query}
