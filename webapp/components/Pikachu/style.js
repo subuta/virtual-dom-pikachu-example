@@ -6,7 +6,9 @@ const COLOR = '#313131';
 
 export const PIKACHU = {
   margin: 16,
-  position: 'relative'
+  position: 'relative',
+  width: DOT_SIZE * 18,
+  border: '1px solid #BBBBBB'
 };
 
 export const ROW = {

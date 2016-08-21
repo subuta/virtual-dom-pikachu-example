@@ -4,7 +4,7 @@ import autoprefixer from 'autoprefixer';
 import freeStyle from 'free-style';
 import i from 'icepick';
 import _ from 'lodash';
-import { paramCase } from 'change-case';
+// import { paramCase } from 'change-case';
 
 // Create a container instance.
 const Style = freeStyle.create();
@@ -40,11 +40,9 @@ export const registerStyle = (key, style) => {
 
   const postcss = postcssJs.sync(plugins);
 
-  const className = paramCase('my-' + key);
+  // const className = paramCase('my-' + key);
   // inject style to free-style.
-  const uniqueKey = Style.registerStyle({
-    [`.${className}, &`]: postcss(style)
-  });
+  const uniqueKey = Style.registerStyle(postcss(style));
 
   classes[key] = uniqueKey;
   return uniqueKey;

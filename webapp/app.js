@@ -21,8 +21,6 @@ const patch = snabbdom.init([ // Init patch function with choosen modules
 ]);
 
 const classes = registerStyles(style);
-console.log(classes);
-// childrenのみを書き換えるパターン
 const render = inject(({dispatch, state}) => {
   return h(`div#app-container.${classes.LAYOUT}`, {
     style: {
@@ -34,11 +32,15 @@ const render = inject(({dispatch, state}) => {
   ]);
 });
 
-let container = document.querySelector('#app-container');
+let container;
+let tree; // We need an initial tree
 
 // Patch into empty DOM element – this modifies the DOM as a side effect
-let tree = render(); // We need an initial tree
-patch(container, tree);
+const onDOMReady = () => {
+  container = document.querySelector('#app-container');
+  tree = render(); // We need an initial tree
+  patch(container, tree);
+};
 
 // - with diff then patch(efficient way / with vdom)
 const update = () => {
@@ -60,3 +62,9 @@ export const _unload = () => {
   unSubscribe();
   console.log('unload!');
 };
+
+if (document.readyState === 'complete' || document.readyState !== 'loading') {
+  onDOMReady();
+} else {
+  document.addEventListener('DOMContentLoaded', onDOMReady);
+}

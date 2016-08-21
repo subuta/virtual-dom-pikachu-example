@@ -30,18 +30,21 @@ const classes = registerStyles(style);
 
 const getDotClass = (dot) => {
   if (dot === 0) {
-    return `.${classes.DOT_OFF}`;
+    return classes.DOT_OFF;
   } else if (dot === 2) {
-    return `.${classes.DOT_GRAY}`;
+    return classes.DOT_GRAY;
   }
-  return `.${classes.DOT}`;
+  return classes.DOT;
 };
+
+// 1. try to add memoize.
 
 // render Pikachu from dots.
 const renderPikachu = (dots) => {
-  return h(`div.${classes.PIKACHU}`, {}, _.map(dots, (row, rowIdx) => {
-    return h(`div.${classes.ROW}.n${rowIdx}`, {}, _.map(row, (col, colIdx) => {
-      return h(`span.col.n${colIdx}${getDotClass(col)}`, {}, ['']);
+  console.log('renderPikachu');
+  return h(`div.${classes.PIKACHU}`, {}, _.map(dots, (row, rowIndex) => {
+    return h(`div.${classes.ROW}.row${rowIndex}`, {}, _.map(row, (col, colIndex) => {
+      return h(`span.col${colIndex}.${getDotClass(col)}`, {}, ['']);
     }));
   }));
 };
@@ -61,7 +64,9 @@ export default inject(({props}) => {
             requestAnimationFrame(() => {
               props.alternate();
             });
-          }, 1000 / 2);
+          }, 1000 / 10); // 10fps
+          // }, 1000 / 30); // 30fps
+          // }, 1000 / 60); // 60fps
         }
       }
     }, [renderPikachu(props.dots)]);
