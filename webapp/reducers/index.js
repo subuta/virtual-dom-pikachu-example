@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 
-import counter from './counter.js';
+import pikachu from './pikachu.js';
 
 const rootReducer = combineReducers({
-  counter
+  pikachu
 });
 
 export default rootReducer;

@@ -6,10 +6,7 @@ import eventlistenersModule from 'snabbdom/modules/eventlisteners';
 import h from 'snabbdom/h';
 
 import store, {inject} from './store.js'
-
-import Counter from './components/counter.js';
-import incrementer from './components/incrementer.js';
-import decrementer from './components/decrementer.js';
+import Pikachu from './components/Pikachu.js';
 
 const patch = snabbdom.init([ // Init patch function with choosen modules
   classModule, // makes it easy to toggle classes
@@ -20,22 +17,11 @@ const patch = snabbdom.init([ // Init patch function with choosen modules
 
 // childrenのみを書き換えるパターン
 const render = inject(({dispatch, state}) => {
-  const count = state.counter.count;
-  return h(`div#app-container.test${count}`, {
+  return h('div#app-container', {
     style: {
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      flexDirection: 'column',
-      textAlign: 'center',
-      border: '1px solid red',
-      width: 100 + 'px',
-      height: 100 + 'px'
     }
   }, [
-    incrementer(),
-    Counter(),
-    decrementer()
+    Pikachu()
   ]);
 });
 
