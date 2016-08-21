@@ -1,0 +1,17 @@
+# serve from
+localhost:3000
+
+gzip
+browse
+ext .html
+
+rewrite {
+  regexp (^/$)
+  to /webapp/index.html?{query}
+}
+
+# otherwise prepend /webapp to request
+rewrite {
+  regexp (.*)
+  to /webapp{path} {path} /webapp/index.html?{query}
+}
