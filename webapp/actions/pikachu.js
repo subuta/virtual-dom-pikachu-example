@@ -17,7 +17,7 @@ import {
 import _ from 'lodash';
 
 export const turn = (direction) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({
       type: 'turn',
       payload: direction

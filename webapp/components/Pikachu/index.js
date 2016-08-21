@@ -52,11 +52,6 @@ const renderPikachu = (dots) => {
 export default inject(({props}) => {
     // console.log('[pikachu] rendered');
     return h(`span`, {
-      on: {
-        'click': function (ev) {
-          return props.alternate();
-        }
-      },
       hook: {
         create: () => {
           console.log('create!');
