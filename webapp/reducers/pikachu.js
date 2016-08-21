@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux';
 import {
-  BLANK
+  PIKACHU_DOWN_A
 } from 'webapp/constants/dots.js';
 
-const dots = (state = BLANK, action) => {
+const dots = (state = PIKACHU_DOWN_A, action) => {
   switch (action.type) {
     case 'toggle':
       return action.payload;

@@ -8,6 +8,9 @@ import { bindActionCreators } from 'redux'
 import * as pikachuActions from 'webapp/actions/pikachu.js';
 import {getDots} from 'webapp/reducers/pikachu.js';
 
+import {registerStyles} from 'webapp/utils/generateStyle.js';
+import style from './style.js';
+
 const mapStateToProps = createSelector(
   getDots,
   (dots) => {
@@ -23,29 +26,30 @@ const mapDispatchToProps = (dispatch) => {
   }
 };
 
+const classes = registerStyles(style);
+
 const getDotClass = (dot) => {
   if (dot === 0) {
-    return '.dot--off';
+    return `.${classes.DOT_OFF}`;
   }
-  return '.dot';
+  return `.${classes.DOT}`;
 };
 
 // render Pikachu from dots.
 const renderPikachu = (dots) => {
-  return h(`span.pikachu`, {}, _.map(dots, (row, rowIdx) => {
-    return h(`span.row.n${rowIdx}`, {}, _.map(row, (col, colIdx) => {
-      return h(`span.col.n${colIdx}${getDotClass(col)}`, {}, [String(col)]);
+  return h(`div.${classes.PIKACHU}`, {}, _.map(dots, (row, rowIdx) => {
+    return h(`div.${classes.ROW}.n${rowIdx}`, {}, _.map(row, (col, colIdx) => {
+      return h(`span.col.n${colIdx}${getDotClass(col)}`, {}, ['']);
     }));
   }));
 };
 
 export default inject(({props}) => {
     console.log('[pikachu] rendered');
-    console.log(renderPikachu(props.dots));
     return h(`span`, {
       on: {
         'click': function (ev) {
-          return props.downA();
+          return props.alternate();
         }
       }
     }, [renderPikachu(props.dots)]);

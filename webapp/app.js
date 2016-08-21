@@ -6,6 +6,8 @@ import eventlistenersModule from 'snabbdom/modules/eventlisteners';
 import h from 'snabbdom/h';
 
 import store, {inject} from './store.js'
+import { getCSS } from './utils/generateStyle.js';
+
 import Pikachu from './components/Pikachu.js';
 
 const patch = snabbdom.init([ // Init patch function with choosen modules
@@ -21,7 +23,8 @@ const render = inject(({dispatch, state}) => {
     style: {
     }
   }, [
-    Pikachu()
+    Pikachu(),
+    h('style', {}, [getCSS()])
   ]);
 });
 
