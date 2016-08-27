@@ -33,9 +33,7 @@ SystemJS.config({
   ],
   map: {
     "assert": "github:jspm/nodelibs-assert@0.2.0-alpha",
-    "autoprefixer": "npm:autoprefixer@6.4.0",
     "buffer": "github:jspm/nodelibs-buffer@0.2.0-alpha",
-    "change-case": "npm:change-case@3.0.0",
     "child_process": "github:jspm/nodelibs-child_process@0.2.0-alpha",
     "constants": "github:jspm/nodelibs-constants@0.2.0-alpha",
     "crypto": "github:jspm/nodelibs-crypto@0.2.0-alpha",
@@ -43,14 +41,11 @@ SystemJS.config({
     "free-style": "npm:free-style@1.2.2",
     "fs": "github:jspm/nodelibs-fs@0.2.0-alpha",
     "http": "github:jspm/nodelibs-http@0.2.0-alpha",
-    "icepick": "npm:icepick@1.3.0",
     "jspm-caddy-hmr": "npm:jspm-caddy-hmr@0.2.10",
     "lodash": "npm:lodash@4.15.0",
     "module": "github:jspm/nodelibs-module@0.2.0-alpha",
     "os": "github:jspm/nodelibs-os@0.2.0-alpha",
     "path": "github:jspm/nodelibs-path@0.2.0-alpha",
-    "postcss-easings": "npm:postcss-easings@0.3.0",
-    "postcss-js": "npm:postcss-js@0.1.3",
     "process": "github:jspm/nodelibs-process@0.2.0-alpha",
     "redux": "npm:redux@3.5.2",
     "redux-thunk": "npm:redux-thunk@2.1.0",
@@ -510,153 +505,6 @@ SystemJS.config({
     "github:jspm/nodelibs-string_decoder@0.2.0-alpha": {
       "map": {
         "string_decoder-browserify": "npm:string_decoder@0.10.31"
-      }
-    },
-    "npm:autoprefixer@6.4.0": {
-      "map": {
-        "normalize-range": "npm:normalize-range@0.1.2",
-        "postcss-value-parser": "npm:postcss-value-parser@3.3.0",
-        "num2fraction": "npm:num2fraction@1.2.2",
-        "browserslist": "npm:browserslist@1.3.5",
-        "postcss": "npm:postcss@5.1.2",
-        "caniuse-db": "npm:caniuse-db@1.0.30000525"
-      }
-    },
-    "npm:change-case@3.0.0": {
-      "map": {
-        "header-case": "npm:header-case@1.0.0",
-        "title-case": "npm:title-case@2.1.0",
-        "upper-case-first": "npm:upper-case-first@1.1.2",
-        "param-case": "npm:param-case@2.1.0",
-        "constant-case": "npm:constant-case@2.0.0",
-        "is-upper-case": "npm:is-upper-case@1.1.2",
-        "camel-case": "npm:camel-case@3.0.0",
-        "dot-case": "npm:dot-case@2.1.0",
-        "is-lower-case": "npm:is-lower-case@1.1.3",
-        "upper-case": "npm:upper-case@1.1.3",
-        "path-case": "npm:path-case@2.1.0",
-        "lower-case": "npm:lower-case@1.1.3",
-        "pascal-case": "npm:pascal-case@2.0.0",
-        "no-case": "npm:no-case@2.3.0",
-        "lower-case-first": "npm:lower-case-first@1.0.2",
-        "snake-case": "npm:snake-case@2.1.0",
-        "swap-case": "npm:swap-case@1.1.2",
-        "sentence-case": "npm:sentence-case@2.1.0"
-      }
-    },
-    "npm:header-case@1.0.0": {
-      "map": {
-        "upper-case": "npm:upper-case@1.1.3",
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:title-case@2.1.0": {
-      "map": {
-        "upper-case": "npm:upper-case@1.1.3",
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:upper-case-first@1.1.2": {
-      "map": {
-        "upper-case": "npm:upper-case@1.1.3"
-      }
-    },
-    "npm:is-upper-case@1.1.2": {
-      "map": {
-        "upper-case": "npm:upper-case@1.1.3"
-      }
-    },
-    "npm:constant-case@2.0.0": {
-      "map": {
-        "upper-case": "npm:upper-case@1.1.3",
-        "snake-case": "npm:snake-case@2.1.0"
-      }
-    },
-    "npm:camel-case@3.0.0": {
-      "map": {
-        "upper-case": "npm:upper-case@1.1.3",
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:is-lower-case@1.1.3": {
-      "map": {
-        "lower-case": "npm:lower-case@1.1.3"
-      }
-    },
-    "npm:param-case@2.1.0": {
-      "map": {
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:dot-case@2.1.0": {
-      "map": {
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:path-case@2.1.0": {
-      "map": {
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:pascal-case@2.0.0": {
-      "map": {
-        "camel-case": "npm:camel-case@3.0.0",
-        "upper-case-first": "npm:upper-case-first@1.1.2"
-      }
-    },
-    "npm:no-case@2.3.0": {
-      "map": {
-        "lower-case": "npm:lower-case@1.1.3"
-      }
-    },
-    "npm:lower-case-first@1.0.2": {
-      "map": {
-        "lower-case": "npm:lower-case@1.1.3"
-      }
-    },
-    "npm:postcss-js@0.1.3": {
-      "map": {
-        "postcss": "npm:postcss@5.1.2",
-        "camelcase-css": "npm:camelcase-css@1.0.1"
-      }
-    },
-    "npm:postcss-easings@0.3.0": {
-      "map": {
-        "postcss": "npm:postcss@5.1.2"
-      }
-    },
-    "npm:snake-case@2.1.0": {
-      "map": {
-        "no-case": "npm:no-case@2.3.0"
-      }
-    },
-    "npm:swap-case@1.1.2": {
-      "map": {
-        "lower-case": "npm:lower-case@1.1.3",
-        "upper-case": "npm:upper-case@1.1.3"
-      }
-    },
-    "npm:sentence-case@2.1.0": {
-      "map": {
-        "no-case": "npm:no-case@2.3.0",
-        "upper-case-first": "npm:upper-case-first@1.1.2"
-      }
-    },
-    "npm:browserslist@1.3.5": {
-      "map": {
-        "caniuse-db": "npm:caniuse-db@1.0.30000525"
-      }
-    },
-    "npm:postcss@5.1.2": {
-      "map": {
-        "supports-color": "npm:supports-color@3.1.2",
-        "source-map": "npm:source-map@0.5.6",
-        "js-base64": "npm:js-base64@2.1.9"
-      }
-    },
-    "npm:supports-color@3.1.2": {
-      "map": {
-        "has-flag": "npm:has-flag@1.0.0"
       }
     }
   }

@@ -1,10 +1,5 @@
-import postcssJs from 'postcss-js';
-import easings from 'postcss-easings';
-import autoprefixer from 'autoprefixer';
 import freeStyle from 'free-style';
-import i from 'icepick';
 import _ from 'lodash';
-// import { paramCase } from 'change-case';
 
 // Create a container instance.
 const Style = freeStyle.create();
@@ -27,23 +22,9 @@ export const registerStyles = (styles = {}) => {
   return classes;
 };
 
-const isStrict = false;
 export const registerStyle = (key, style) => {
-  if (isStrict && classes[key]) {
-    throw new Error(`style of ${key} is already registered!`);
-  }
-
-  let plugins = [
-    easings,
-    autoprefixer
-  ];
-
-  const postcss = postcssJs.sync(plugins);
-
-  // const className = paramCase('my-' + key);
   // inject style to free-style.
-  const uniqueKey = Style.registerStyle(postcss(style));
-
+  const uniqueKey = Style.registerStyle(style);
   classes[key] = uniqueKey;
   return uniqueKey;
 };

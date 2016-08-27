@@ -36,6 +36,12 @@ const renderButton = ({onClick, className, child}) => {
   );
 };
 
+// in JSX
+// <button className={`${classes.CONTROLLER_BUTTON}.${className}`}
+//         onClick={onClick}>
+//   {child}
+// </button>
+
 export default inject(({props}) => {
     return h(`div.${classes.CONTROLLER}`,
       {},

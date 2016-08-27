@@ -21,7 +21,7 @@ const patch = snabbdom.init([ // Init patch function with choosen modules
 ]);
 
 const classes = registerStyles(style);
-const render = inject(({dispatch, state}) => {
+const render = () => {
   return h(`div#app-container.${classes.LAYOUT}`, {
     style: {
     }
@@ -30,7 +30,7 @@ const render = inject(({dispatch, state}) => {
     Controller(),
     h('style', {}, [getCSS()])
   ]);
-});
+};
 
 let container;
 let tree; // We need an initial tree
@@ -63,6 +63,7 @@ export const _unload = () => {
   console.log('unload!');
 };
 
+// $(body).ready()的なの
 if (document.readyState === 'complete' || document.readyState !== 'loading') {
   onDOMReady();
 } else {

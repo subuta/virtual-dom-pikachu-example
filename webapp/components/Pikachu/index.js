@@ -50,8 +50,8 @@ const renderPikachu = (dots) => {
 };
 
 export default inject(({props}) => {
-    // console.log('[pikachu] rendered');
-    return h(`span`, {
+    console.log('[pikachu] rendered');
+    return h(`div`, {
       hook: {
         create: () => {
           console.log('create!');
