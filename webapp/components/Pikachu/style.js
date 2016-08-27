@@ -5,7 +5,7 @@ import {
 const COLOR = '#313131';
 
 export const PIKACHU = {
-  margin: 16,
+  margin: 12,
   position: 'relative',
   width: DOT_SIZE * 18,
   border: '1px solid #BBBBBB'
