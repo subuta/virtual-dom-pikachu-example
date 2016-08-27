@@ -1,5 +1,4 @@
 import h from 'snabbdom/h';
-import _ from 'lodash';
 
 import {inject} from 'webapp/store.js'
 import {createSelector} from 'reselect';
@@ -30,8 +29,14 @@ const classes = registerStyles(style);
 
 // render Pikachu from dots.
 const renderButton = ({onClick, className, child}) => {
-  return h(`button.${classes.CONTROLLER_BUTTON}.${className}`,
-    {on: {'click': onClick}},
+  return h(`button`,
+    {
+      class: {
+        [classes.CONTROLLER_BUTTON]: true,
+        [className]: className
+      },
+      on: {'click': onClick}
+    },
     [child]
   );
 };
@@ -43,8 +48,8 @@ const renderButton = ({onClick, className, child}) => {
 // </button>
 
 export default inject(({props}) => {
-    return h(`div.${classes.CONTROLLER}`,
-      {},
+    return h('div',
+      {class: {[classes.CONTROLLER]: true}},
       [
         renderButton({child: '↑', onClick: () => props.turn('up'), className: classes.CONTROLLER_BUTTON_UP}),
         renderButton({child: '↓', onClick: () => props.turn('down'), className: classes.CONTROLLER_BUTTON_DOWN}),

@@ -3,9 +3,7 @@ import _ from 'lodash';
 
 import {inject} from 'webapp/store.js'
 import {createSelector} from 'reselect';
-import { bindActionCreators } from 'redux'
 
-import * as pikachuActions from 'webapp/actions/pikachu.js';
 import {getDots} from 'webapp/reducers/pikachu.js';
 
 import {registerStyles} from 'webapp/utils/generateStyle.js';
@@ -20,12 +18,6 @@ const mapStateToProps = createSelector(
   }
 );
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    ...bindActionCreators(pikachuActions, dispatch)
-  }
-};
-
 const classes = registerStyles(style);
 
 const getDotClass = (dot) => {
@@ -37,35 +29,19 @@ const getDotClass = (dot) => {
   return classes.DOT;
 };
 
-// 1. try to add memoize.
-
 // render Pikachu from dots.
 const renderPikachu = (dots) => {
-  console.log('renderPikachu');
-  return h(`div.${classes.PIKACHU}`, {}, _.map(dots, (row, rowIndex) => {
-    return h(`div.${classes.ROW}.row${rowIndex}`, {}, _.map(row, (col, colIndex) => {
-      return h(`span.col${colIndex}.${getDotClass(col)}`, {}, ['']);
+  // console.log('renderPikachu');
+  return h('div', {class: {[classes.PIKACHU]: true}}, _.map(dots, (row, rowIndex) => {
+    return h('div', {class: {[classes.ROW]: true, [`row${rowIndex}`]: true}}, _.map(row, (col, colIndex) => {
+      return h('span', {class: {[`col${colIndex}`]: true, [getDotClass(col)]: true}}, ['']);
     }));
   }));
 };
 
 export default inject(({props}) => {
-    console.log('[pikachu] rendered');
-    return h(`div`, {
-      hook: {
-        create: () => {
-          console.log('create!');
-          setInterval(() => {
-            requestAnimationFrame(() => {
-              props.alternate();
-            });
-          }, 1000 / 10); // 10fps
-          // }, 1000 / 30); // 30fps
-          // }, 1000 / 60); // 60fps
-        }
-      }
-    }, [renderPikachu(props.dots)]);
+    // console.log('[pikachu] rendered');
+    return h('div', {}, [renderPikachu(props.dots)]);
   },
-  mapStateToProps,
-  mapDispatchToProps
+  mapStateToProps
 );
