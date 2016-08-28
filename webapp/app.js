@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 // keep timerId to stop setInterval on hmr.
-export var timerId = 0;
+var timerId = 0;
 const classes = registerStyles(style);
 const render = inject(({props}) => {
   return h(`div#app-container`, {
@@ -76,15 +76,12 @@ const update = () => {
 let unSubscribe = store.subscribe(update);
 
 export const _reload = () => {
-  unSubscribe = store.subscribe(update);
-  update();
   console.log('reload!');
 };
 
 export const _unload = function() {
   unSubscribe();
-  // work around for sometime timerId become invalid value.
-  _.each(_.range(1, this.timerId + 1), tId => clearInterval(tId));
+  clearInterval(timerId);
   console.log('unload!');
 };
 
