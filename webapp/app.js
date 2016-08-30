@@ -44,9 +44,9 @@ const render = inject(({props}) => {
           requestAnimationFrame(() => {
             props.alternate();
           });
-        }, 1000 / 10); // 10fps
+        // }, 1000 / 10); // 10fps
         // }, 1000 / 30); // 30fps
-        // }, 1000 / 60); // 60fps
+        }, 1000 / 60); // 60fps
       }
     }
   }, [
