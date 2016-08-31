@@ -1,6 +1,9 @@
 # virtual-dom-pikachu-example
 pikachu simple animation example.
 
+- [DEMO](https://subuta.github.io/virtual-dom-pikachu-example/)
+- ポケットモンスター・ポケモン・Pokemonは任天堂・クリーチャーズ・ゲームフリークの登録商標です。
+
 ## Uses
 - [redux-virtual-dom](https://github.com/subuta/redux-virtual-dom)
   - My library to make use of virtual-dom easy with redux :)

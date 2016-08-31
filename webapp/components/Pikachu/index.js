@@ -4,16 +4,21 @@ import _ from 'lodash';
 import {inject} from 'webapp/store.js'
 import {createSelector} from 'reselect';
 
-import {getDots} from 'webapp/reducers/pikachu.js';
+import {
+  getDots,
+  getFps
+} from 'webapp/reducers/pikachu.js';
 
 import {registerStyles} from 'webapp/utils/generateStyle.js';
 import style from './style.js';
 
 const mapStateToProps = createSelector(
   getDots,
-  (dots) => {
+  getFps,
+  (dots, fps) => {
     return {
-      dots
+      dots,
+      fps
     }
   }
 );
@@ -41,7 +46,10 @@ const renderPikachu = (dots) => {
 
 export default inject(({props}) => {
     // console.log('[pikachu] rendered');
-    return h('div', {}, [renderPikachu(props.dots)]);
+    return h('div', {class: {[classes.PIKACHU_WRAPPER]: true}}, [
+      renderPikachu(props.dots),
+      h('div', {class: {[classes.FPS]: true}}, [`${props.fps} fps`])
+    ]);
   },
   mapStateToProps
 );

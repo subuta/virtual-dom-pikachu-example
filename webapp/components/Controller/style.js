@@ -28,7 +28,40 @@ export const CONTROLLER_BUTTON_UP = {
   left: DOT_SIZE * 8,
   top: 0,
   borderTopLeftRadius: 2,
-  borderTopRightRadius: 2
+  borderTopRightRadius: 2,
+  '&:hover': {
+    backgroundColor: '#FFBBBB !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_UP1 = {
+  ...CONTROLLER_BUTTON_UP,
+  '&:hover': {
+    backgroundColor: '#FF8888 !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_UP2 = {
+  ...CONTROLLER_BUTTON_UP1,
+  backgroundColor: '#FF8888 !important',
+  '&:hover': {
+    backgroundColor: '#FF4444 !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_UP3 = {
+  ...CONTROLLER_BUTTON_UP2,
+  '&:hover': {
+    backgroundColor: '#FF0000 !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_UP4 = {
+  ...CONTROLLER_BUTTON_UP3,
+  backgroundColor: '#414149',
+  '&:hover': {
+    backgroundColor: '#616169'
+  }
 };
 
 export const CONTROLLER_BUTTON_DOWN = {
@@ -37,7 +70,40 @@ export const CONTROLLER_BUTTON_DOWN = {
   left: DOT_SIZE * 8,
   bottom: 0,
   borderBottomLeftRadius: 2,
-  borderBottomRightRadius: 2
+  borderBottomRightRadius: 2,
+  '&:hover': {
+    backgroundColor: '#FFBBBB !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_DOWN1 = {
+  ...CONTROLLER_BUTTON_DOWN,
+  '&:hover': {
+    backgroundColor: '#FF8888 !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_DOWN2 = {
+  ...CONTROLLER_BUTTON_DOWN1,
+  '&:hover': {
+    backgroundColor: '#FF4444 !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_DOWN3 = {
+  ...CONTROLLER_BUTTON_DOWN2,
+  backgroundColor: '#FF4444 !important',
+  '&:hover': {
+    backgroundColor: '#FF0000 !important'
+  }
+};
+
+export const CONTROLLER_BUTTON_DOWN4 = {
+  ...CONTROLLER_BUTTON_DOWN2,
+  backgroundColor: '#414149',
+  '&:hover': {
+    backgroundColor: '#616169'
+  }
 };
 
 export const CONTROLLER_BUTTON_CENTER = {
@@ -70,7 +136,15 @@ export default {
   CONTROLLER,
   CONTROLLER_BUTTON,
   CONTROLLER_BUTTON_UP,
+  CONTROLLER_BUTTON_UP1,
+  CONTROLLER_BUTTON_UP2,
+  CONTROLLER_BUTTON_UP3,
+  CONTROLLER_BUTTON_UP4,
   CONTROLLER_BUTTON_DOWN,
+  CONTROLLER_BUTTON_DOWN1,
+  CONTROLLER_BUTTON_DOWN2,
+  CONTROLLER_BUTTON_DOWN3,
+  CONTROLLER_BUTTON_DOWN4,
   CONTROLLER_BUTTON_CENTER,
   CONTROLLER_BUTTON_RIGHT,
   CONTROLLER_BUTTON_LEFT,

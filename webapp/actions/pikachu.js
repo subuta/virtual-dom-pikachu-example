@@ -11,10 +11,43 @@ import {
 
 import {
   getDots,
-  getDirection
+  getDirection,
+  getTimerId
 } from 'webapp/reducers/pikachu.js';
 
 import _ from 'lodash';
+
+export const cancelAnimate = () => {
+  return (dispatch, getState) => {
+    const timerId = getTimerId(getState());
+    timerId && clearInterval(timerId);
+    dispatch({type: 'cancelAnimate'})
+  };
+};
+
+export const animate = (fps = 10) => {
+  console.log('[animate]fps = ', fps);
+  return (dispatch) => {
+    // cancel once.
+    dispatch(cancelAnimate());
+    const timerId = setInterval(() => {
+      requestAnimationFrame(() => {
+        dispatch(alternate());
+      });
+    }, 1000 / fps);
+    dispatch({
+      type: 'animate',
+      payload: {
+        fps,
+        timerId
+      }
+    })
+  };
+};
+
+export const clearCommands = () => {
+  return {type: 'clearCommands'};
+};
 
 export const turn = (direction) => {
   return (dispatch) => {

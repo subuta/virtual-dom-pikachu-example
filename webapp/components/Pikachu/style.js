@@ -4,11 +4,24 @@ import {
 
 const COLOR = '#313131';
 
+export const PIKACHU_WRAPPER = {
+  position: 'relative',
+  display: 'inline-block'
+};
+
 export const PIKACHU = {
   margin: 12,
   position: 'relative',
   width: DOT_SIZE * 18,
   border: '1px solid #BBBBBB'
+};
+
+export const FPS = {
+  position: 'absolute',
+  right: 0,
+  top: '50%',
+  fontSize: 16,
+  transform: 'translateX(100%)'
 };
 
 export const ROW = {
@@ -37,7 +50,9 @@ export const DOT_OFF = {
 };
 
 export default {
+  PIKACHU_WRAPPER,
   PIKACHU,
+  FPS,
   ROW,
   DOT,
   DOT_GRAY,
